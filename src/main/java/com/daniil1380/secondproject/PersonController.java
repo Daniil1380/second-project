@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -39,25 +38,56 @@ public class PersonController {
         return people.get(idNumber);
     }
 
-    @GetMapping(value = "/hello")
-    public String hello() {
-        return "Привет мир";
-    }
-
-    @GetMapping(value = "/hello/{a}")
-    public String helloWorld(@PathVariable String a) {
-        return "Привет мир " + a;
-    }
-
-    @GetMapping(value = "/sum")
-    public String sum(@RequestParam String first, @RequestParam String second) {
-        return first + second;
-    }
-
-    @PostMapping
+    @PostMapping(value = "/person")
     public Person addPerson(@RequestBody Person person) {
         people.add(person);
         return person;
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//@GetMapping(value = "/hello")
+//public String hello() {
+//    return "Привет мир";
+//}
+//
+//@GetMapping(value = "/hello/{a}")
+//public String helloWorld(@PathVariable String a) {
+//    return "Привет мир " + a;
+//}
+//
+//@GetMapping(value = "/sum")
+//public String sum(@RequestParam String first, @RequestParam String second) {
+//    return first + second;
+//}
