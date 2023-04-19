@@ -1,5 +1,6 @@
 package com.daniil1380.secondproject;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,17 @@ public class PersonController {
     public Person addPerson(@RequestBody Person person) {
         people.add(person);
         return person;
+    }
+
+    //@RequestBody - 1 (чаще всего в post запросах, когда передаем большой тяжелый объект)
+    //@PathVariable - 2 (переменная пути, если видим {} - это оно)
+    //@RequestParam - 3 (параметр запроса, чаще всего очень простое значение, выбираем, если
+    //не 1, и не 2
+
+    @DeleteMapping(value = "/person/{id}")
+    public void deletePerson(@PathVariable String id) {
+        int idNumber = Integer.parseInt(id);
+        people.remove(idNumber);
     }
 
 }
